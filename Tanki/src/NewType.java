@@ -38,9 +38,9 @@ public class NewType extends JPanel implements ActionListener {
         this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-        this.thread = new MyThread(this);
+        //this.thread = new MyThread(this);
         startGame();
-        thread.start();
+        //thread.start();
     }
 
     public void startGame() {

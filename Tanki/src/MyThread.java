@@ -3,9 +3,10 @@ public class MyThread extends Thread{
     private NewType type;
     private GameFrame frame;
 
-    public MyThread(NewType type) {
+    public MyThread(GameFrame frame) {
         super("MyThread");
-        this.type = type;
+        this.frame = frame;
+        type = frame.type();
     }
 
     public void run() {
@@ -21,6 +22,9 @@ public class MyThread extends Thread{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            } else {
+                frame.dispose();
+                break;
             }
         }
     }
