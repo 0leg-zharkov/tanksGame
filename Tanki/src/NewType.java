@@ -27,9 +27,7 @@ public class NewType extends JPanel implements ActionListener {
     private char whoWon;
     private boolean checkFire;
     private Random random;
-    private Thread thread;
     private boolean bulletCollision = true;
-     boolean over = false;
 
     public NewType() {
 
@@ -38,9 +36,7 @@ public class NewType extends JPanel implements ActionListener {
         this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-        //this.thread = new MyThread(this);
         startGame();
-        //thread.start();
     }
 
     public void startGame() {
@@ -59,13 +55,11 @@ public class NewType extends JPanel implements ActionListener {
                 bulletDraw(g);
             }
             pcBulletDraw(g);
-        } else {
+       } else {
            gameOver(g);
-           //this.setVisible(false);
-           over = true;
            System.out.println(pcX);
            System.out.println(pcY);
-        }
+       }
     }
 
     public void draw(Graphics g) {

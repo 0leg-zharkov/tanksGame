@@ -17,10 +17,6 @@ public class GameFrame extends JFrame {
         thread.start();
     }
 
-    public boolean rest() {
-        return game.over;
-    }
-
     public NewType type() {
         return game;
     }

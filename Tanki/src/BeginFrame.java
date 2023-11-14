@@ -13,7 +13,6 @@ public class BeginFrame extends JFrame implements ActionListener {
     JLabel instructionsDown;
     Dimension labelSize = new Dimension(200, 40);
 
-    private final GameFrame frame = new GameFrame();
 
     public void init() {
 
@@ -68,8 +67,7 @@ public class BeginFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //this.setVisible(true);
-        //this.dispose();
+        final GameFrame frame = new GameFrame();
         frame.start();
     }
 }

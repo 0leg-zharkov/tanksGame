@@ -1,7 +1,11 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class MyThread extends Thread{
 
     private NewType type;
     private GameFrame frame;
+    private String isContinue = " ";
 
     public MyThread(GameFrame frame) {
         super("MyThread");
@@ -23,6 +27,11 @@ public class MyThread extends Thread{
                     e.printStackTrace();
                 }
             } else {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                        e.printStackTrace();
+                }
                 frame.dispose();
                 break;
             }
