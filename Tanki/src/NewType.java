@@ -9,7 +9,6 @@ import static nums.AllNums.*;
 
 public class NewType extends JPanel implements ActionListener {
 
-
     private int gamerX = SPAWN_MID;
     private int gamerY = SCREEN_HEIGHT;
     private int rand;
@@ -126,7 +125,7 @@ public class NewType extends JPanel implements ActionListener {
     }
 
     public void moveEnemy() {
-        rand = random.nextInt(1, 5);
+        rand = random.nextInt(1, 6);
         switch (rand) {
             case 1:
                 if (pcX >= SCREEN_WIDTH - BORDER) {
@@ -191,9 +190,8 @@ public class NewType extends JPanel implements ActionListener {
                     pcDirection = 'U';
                 }
                 break;
-
         }
-        // xz почему, но так лучше начал работать?????
+        // не знаю почему, но так лучше начал работать?????
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {

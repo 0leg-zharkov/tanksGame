@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class BeginFrame extends JFrame implements ActionListener {
 
     JButton startGame;
@@ -12,50 +13,50 @@ public class BeginFrame extends JFrame implements ActionListener {
     JLabel instructionsLeft;
     JLabel instructionsDown;
     Dimension labelSize = new Dimension(200, 40);
+    JTextField name;
 
 
     public void init() {
 
         this.setTitle("Tanks");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
-        this.setSize(600, 600);
+        this.setLayout(new FlowLayout(FlowLayout.LEADING));
+        //this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
-        instructionsGap = new JLabel();
-        instructionsUp = new JLabel();
-        instructionsDown = new JLabel();
-        instructionsLeft = new JLabel();
-        instructionsRight = new JLabel();
-
-        instructionsGap.setText("Press gap ↔ to shoot");
-        instructionsGap.setVerticalAlignment(JLabel.BOTTOM);
-        instructionsGap.setHorizontalAlignment(JLabel.CENTER);
-        instructionsGap.setPreferredSize(labelSize);
-
-        instructionsUp.setText("Press ⬆ to turn up");
-        instructionsUp.setVerticalAlignment(JLabel.BOTTOM);
-        instructionsUp.setHorizontalAlignment(JLabel.CENTER);
-        instructionsUp.setPreferredSize(labelSize);
-
-        instructionsLeft.setText("Press ⬅ to turn left");
-        instructionsLeft.setVerticalAlignment(JLabel.BOTTOM);
-        instructionsLeft.setHorizontalAlignment(JLabel.CENTER);
-        instructionsLeft.setPreferredSize(labelSize);
-
-        instructionsDown.setText("Press ⬇ to turn down");
-        instructionsDown.setVerticalAlignment(JLabel.BOTTOM);
-        instructionsDown.setHorizontalAlignment(JLabel.CENTER);
-        instructionsDown.setPreferredSize(labelSize);
-
-        instructionsRight.setText("Press ➡ to turn right");
-        instructionsRight.setVerticalAlignment(JLabel.BOTTOM);
-        instructionsRight.setHorizontalAlignment(JLabel.CENTER);
-        instructionsRight.setPreferredSize(labelSize);
+        //this.setResizable(false);
 
         startGame = new JButton("START GAME");
         startGame.addActionListener(this);
+        //startGame.setBounds(10, 10, 150, 25);
+
+        instructionsGap = new JLabel("Press gap ↔ to shoot");
+        instructionsUp = new JLabel("Press ⬆ to turn up");
+        instructionsDown = new JLabel("Press ⬇ to turn down");
+        instructionsLeft = new JLabel("Press ⬅ to turn left");
+        instructionsRight = new JLabel("Press ➡ to turn right");
+
+        instructionsGap.setPreferredSize(labelSize);
+        instructionsUp.setPreferredSize(labelSize);
+        instructionsLeft.setPreferredSize(labelSize);
+        instructionsDown.setPreferredSize(labelSize);
+        instructionsRight.setPreferredSize(labelSize);
+
+//        instructionsGap.setBounds(0, 300 - 5 * labelSize.height, labelSize.width, labelSize.height);
+//        instructionsUp.setBounds(0, 300 - 4 *  labelSize.height, labelSize.width, labelSize.height);
+//        instructionsDown.setBounds(0, 300 - 3 * labelSize.height, labelSize.width, labelSize.height);
+//        instructionsLeft.setBounds(0, 300 - 2 * labelSize.height, labelSize.width, labelSize.height);
+//        instructionsRight.setBounds(10, 150 + labelSize.height, labelSize.width, labelSize.height);
+
+        name = new JTextField(15);
+        name.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(BeginFrame.this, "Ваше имя: " + name.getText());
+            }
+        });
+        //name.setBounds(300, 300, 50, 25);
 
         this.add(startGame);
         this.add(instructionsGap);
@@ -63,12 +64,13 @@ public class BeginFrame extends JFrame implements ActionListener {
         this.add(instructionsDown);
         this.add(instructionsLeft);
         this.add(instructionsRight);
+        this.add(name);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         final GameFrame frame = new GameFrame();
-        frame.start();
+        frame.start(name.getText());
     }
 }
 

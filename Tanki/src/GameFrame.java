@@ -3,8 +3,9 @@ import javax.swing.*;
 public class GameFrame extends JFrame {
 
     private NewType game;
+    private String gamerName;
     Thread thread;
-    public void start() {
+    public void start(String gamerName) {
         game = new NewType();
         this.add(game);
         this.setTitle("Tanks");
@@ -14,10 +15,15 @@ public class GameFrame extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.thread = new MyThread(this);
+        this.gamerName = gamerName;
         thread.start();
     }
 
     public NewType type() {
         return game;
+    }
+
+    public String getGamerName() {
+        return gamerName;
     }
 }

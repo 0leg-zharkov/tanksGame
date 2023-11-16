@@ -1,11 +1,8 @@
-import javax.swing.*;
-import java.awt.*;
-
 public class MyThread extends Thread{
 
     private NewType type;
     private GameFrame frame;
-    private String isContinue = " ";
+    private GamerPersistance gamerPersistance;
 
     public MyThread(GameFrame frame) {
         super("MyThread");
@@ -14,7 +11,8 @@ public class MyThread extends Thread{
     }
 
     public void run() {
-
+        long beginTime = System.currentTimeMillis();
+        long finishTime;
         while (true) {
             if (type.checkCollisions()) {
                 type.move();
@@ -27,6 +25,7 @@ public class MyThread extends Thread{
                     e.printStackTrace();
                 }
             } else {
+                finishTime = System.currentTimeMillis();;
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -36,5 +35,9 @@ public class MyThread extends Thread{
                 break;
             }
         }
+        int result = Integer.parseInt(String.valueOf((finishTime - beginTime) / 1000));
+        gamerPersistance = new GamerPersistance();
+        gamerPersistance.createGamer(frame.getGamerName(), result);
+        System.out.println(result + " res");
     }
 }
