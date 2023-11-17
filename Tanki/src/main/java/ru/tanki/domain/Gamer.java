@@ -1,3 +1,5 @@
+package ru.tanki.domain;
+
 public class Gamer {
 
     private String nameId;

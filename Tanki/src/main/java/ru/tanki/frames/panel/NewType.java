@@ -1,3 +1,5 @@
+package ru.tanki.frames.panel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,7 +7,7 @@ import java.util.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static nums.AllNums.*;
+import static ru.tanki.nums.AllNums.*;
 
 public class NewType extends JPanel implements ActionListener {
 

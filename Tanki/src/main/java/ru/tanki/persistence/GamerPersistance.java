@@ -1,3 +1,8 @@
+package ru.tanki.persistence;
+
+import ru.tanki.database.DataBase;
+import ru.tanki.domain.Gamer;
+
 import java.util.List;
 import java.util.Map;
 

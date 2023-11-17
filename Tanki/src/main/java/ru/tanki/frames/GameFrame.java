@@ -1,3 +1,8 @@
+package ru.tanki.frames;
+
+import ru.tanki.frames.panel.NewType;
+import ru.tanki.frames.threads.MyThread;
+
 import javax.swing.*;
 
 public class GameFrame extends JFrame {

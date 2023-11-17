@@ -1,3 +1,9 @@
+package ru.tanki.frames.threads;
+
+import ru.tanki.frames.GameFrame;
+import ru.tanki.frames.panel.NewType;
+import ru.tanki.persistence.GamerPersistance;
+
 public class MyThread extends Thread{
 
     private NewType type;

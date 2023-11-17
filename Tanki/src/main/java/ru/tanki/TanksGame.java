@@ -1,3 +1,7 @@
+package ru.tanki;
+
+import ru.tanki.frames.BeginFrame;
+
 public class TanksGame {
     private static final BeginFrame frame = new BeginFrame();
 
