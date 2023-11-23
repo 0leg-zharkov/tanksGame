@@ -12,4 +12,7 @@ public interface AllNums {
     int Y_UP_BARR = 200;
     int Y_DOWN_BARR = 400;
     int Y_BARRIER = SCREEN_HEIGHT / 2;
+    int X_SET_LOCATION = Y_BARRIER;
+    int CMPTS_MENU_WIDTH = 150;
+    int CMPTS_MENU_HEIGHT = UNIT_SIZE;
 }
