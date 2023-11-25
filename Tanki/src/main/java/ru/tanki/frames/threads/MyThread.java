@@ -4,11 +4,8 @@ import ru.tanki.domain.Gamer;
 import ru.tanki.frames.GameFrame;
 import ru.tanki.frames.panel.NewType;
 import ru.tanki.persistence.GamerPersistance;
-import ru.tanki.TanksGame;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class MyThread extends Thread{
 

@@ -1,15 +1,11 @@
 package ru.tanki.frames.panel;
 
-import ru.tanki.domain.Gamer;
-import ru.tanki.frames.BeginFrame;
 import ru.tanki.frames.GameFrame;
 import ru.tanki.persistence.GamerPersistance;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import static ru.tanki.nums.AllNums.*;
 
