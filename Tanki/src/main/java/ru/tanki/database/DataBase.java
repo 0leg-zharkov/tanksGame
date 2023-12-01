@@ -53,6 +53,32 @@ public class DataBase {
         return result;
     }
 
+        public Map<String, String > selectByNameId(String nameId, String table, String... columnNames) {
+            Map<String, String> result = new HashMap<>();
+            String sql = """
+                   select %s
+                   from cursach.%s
+                   where nameid = '%s'
+                   """;
+            String names = Stream.of(columnNames).collect(Collectors.joining(", "));
+
+            String select = String.format(sql, names, table, nameId);
+            try (Connection connection = connect();
+                 Statement statement = connection.createStatement()) {
+                ResultSet set = statement.executeQuery(select);
+
+                while(set.next()) {
+                    for(String columnName : columnNames) {
+                        result.put(columnName, set.getString(columnName));
+                       // set.getObject(columnName);
+                    }
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            return result;
+        }
+
     public void init() {
         createSchema();
         createTableGamer();
@@ -84,32 +110,6 @@ public class DataBase {
                 """;
         execute(sql);
     }
-
-    //закоментил, пока не надо
-//    public Map<String, String > selectByNameId(String nameId, String table, String... columnNames) {
-//        Map<String, String> result = new HashMap<>();
-//        String sql = """
-//               select nameId, %s
-//               from gamers.%s
-//               where nameId = %s
-//               """;
-//        String names = Stream.of(columnNames).collect(Collectors.joining(", "));
-//
-//        String select = String.format(sql, names, table, nameId);
-//        try (Connection connection = connect();
-//             Statement statement = connection.createStatement()) {
-//            ResultSet set = statement.executeQuery(select);
-//
-//            while(set.next()) {
-//                for(String columnName : columnNames) {
-//                    set.getObject(columnName);
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        return result;
-//    }
 
     public Connection connect() throws SQLException {
         return DriverManager.getConnection(

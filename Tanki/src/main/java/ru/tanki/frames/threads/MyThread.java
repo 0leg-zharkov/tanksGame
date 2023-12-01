@@ -58,7 +58,6 @@ public class MyThread extends Thread{
                     gamerPersistance.updateGamer(gamerName, result);
                 } else {
                     gamerPersistance.createGamer(gamerName, result);
-                    //gamerPersistance.updateTable(gamerName);
                 }
                 System.out.println(result + " res");
                 frame.dispose();

@@ -34,7 +34,6 @@ public class MenuPanel extends JPanel {
             final GameFrame frame = new GameFrame();
             frame.start(name.getText(), gamerPersistance);
         });
-        //startGame.addActionListener(this::actionPerformed);
 
         name_input.setBounds(X_SET_LOCATION, CMPTS_MENU_HEIGHT, CMPTS_MENU_WIDTH, CMPTS_MENU_HEIGHT);
 
@@ -48,7 +47,6 @@ public class MenuPanel extends JPanel {
             }
         });
 
-        //подумать о том, добавлять ли его после конца игры. о расположении, крч полностью описать
         knowTime.setBounds(X_SET_LOCATION, CMPTS_MENU_HEIGHT * 3, CMPTS_MENU_WIDTH, CMPTS_MENU_HEIGHT);
 
         instructions.setBounds(X_SET_LOCATION,CMPTS_MENU_HEIGHT * 4, CMPTS_MENU_WIDTH, CMPTS_MENU_HEIGHT);
@@ -58,6 +56,7 @@ public class MenuPanel extends JPanel {
         instructionsLeft.setBounds( 0,     CMPTS_MENU_HEIGHT * 8, CMPTS_MENU_WIDTH, CMPTS_MENU_HEIGHT);
         instructionsRight.setBounds(0,     CMPTS_MENU_HEIGHT * 9, CMPTS_MENU_WIDTH, CMPTS_MENU_HEIGHT);
 
+        this.setLayout(null);
         this.add(startGame);
         this.add(name_input);
         this.add(name);
@@ -76,13 +75,4 @@ public class MenuPanel extends JPanel {
     public JButton getKnowTime() {
         return knowTime;
     }
-
-//    public JButton getStartGame() {
-//        return startGame;
-//    }
-
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//
-//    }
 }

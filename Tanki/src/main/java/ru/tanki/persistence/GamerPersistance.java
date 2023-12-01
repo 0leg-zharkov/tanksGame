@@ -11,7 +11,7 @@ public class GamerPersistance {
     private final DataBase db = DataBase.getInstance();
 
     private static final String TABLE_NAME = "gamers";
-    private static final String ID_NAME = "nameId";
+    private static final String ID_NAME = "nameid";
     private static final String TIME_NAME = "gametime";
 
     public void createGamer(String nameId, int time) {
@@ -50,18 +50,18 @@ public class GamerPersistance {
     }
 
     //закоментил, пока не надо
-//    public Gamer getByNameId(String nameId) {
-//        Map<String, String> fromBd = db.selectByNameId(
-//                nameId,
-//                TABLE_NAME,
-//                ID_NAME,
-//                TIME_NAME
-//        );
-//        if (fromBd == null) {
-//            return null;
-//        }
-//        return convertGamer(fromBd);
-//    }
+    public Gamer getByNameId(String nameId) {
+        Map<String, String> fromBd = db.selectByNameId(
+                nameId,
+                TABLE_NAME,
+                ID_NAME,
+                TIME_NAME
+        );
+        if (fromBd == null && fromBd.isEmpty()) {
+            return null;
+        }
+        return convertGamer(fromBd);
+    }
 
     public List<Gamer> getAll() {
         List<Map<String, String>> fromDB = db.selectAll(
@@ -75,7 +75,7 @@ public class GamerPersistance {
                 .toList();
     }
 
-    private Gamer convertGamer(Map<String, String> fromBd) {
+    protected Gamer convertGamer(Map<String, String> fromBd) {
         return new Gamer(
                 fromBd.get(ID_NAME),
                 Integer.parseInt(fromBd.get(TIME_NAME))

@@ -5,10 +5,12 @@ import ru.tanki.persistence.GamerPersistance;
 
 public class TanksGame {
 
-    public GamerPersistance gamerPersistance = new GamerPersistance();
     private static final BeginFrame frame = new BeginFrame();
 
     public static void main(String[] args) {
+        GamerPersistance gamerPersistance = new GamerPersistance();
+        gamerPersistance.createGamer("OLEG", 3);
+        gamerPersistance.getAll();
         frame.init();
     }
 }

@@ -20,9 +20,7 @@ public class BeginFrame extends JFrame {
 
         this.setTitle("Tanks");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.setLayout(null);
         this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -40,7 +38,7 @@ public class BeginFrame extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                gamerPersistance.deleteAllGamers();
+                //gamerPersistance.deleteAllGamers();
             }
 
             @Override

@@ -12,10 +12,12 @@ public class PanelSet extends JPanel implements ActionListener {
     private final String NEXT = "Show gamers time";
     private final String PREVIOUS = "PREVIOUS";
     private GamerPersistance gamerPersistance;
+    RecordsPanel recordsPanel;
 
     public PanelSet(MenuPanel menu, RecordsPanel records, GamerPersistance gamerPersistance) {
 
         this.gamerPersistance = gamerPersistance;
+        this.recordsPanel = records;
         this.setLayout(new CardLayout());
         this.add(menu, NEXT);
         this.add(records, PREVIOUS);
@@ -35,9 +37,10 @@ public class PanelSet extends JPanel implements ActionListener {
         CardLayout cl = (CardLayout) (this.getLayout());
         String cmd = e.getActionCommand();
         if (cmd.equals(NEXT)) {
+            recordsPanel.close();
+            recordsPanel.reloud(gamerPersistance);
             cl.last(this);
             System.out.println("pressed show gamers");
-            gamerPersistance.updateTable();
             this.repaint();
         } else {
             cl.first(this);
