@@ -6,6 +6,8 @@ import ru.tanki.domain.Gamer;
 import java.util.Map;
 import java.util.Objects;
 
+import static org.mockito.BDDMockito.then;
+
 public class GamerPersistence_ConvertGamer_Test {
 
     private static final GamerPersistance gamerPersistence = new GamerPersistance();
@@ -18,16 +20,7 @@ public class GamerPersistence_ConvertGamer_Test {
 
         Gamer gamer = gamerPersistence.convertGamer(input);
 
-        if (!Objects.equals(gamer.getNameId(), "OLEG")) {
-            throw new RuntimeException(
-                    "Invalid. Actual infl: " + gamer.getNameId()
-            );
-        }
-
-        if (!Objects.equals(gamer.getTime(), 3)) {
-            throw new RuntimeException(
-                    "Invalid. Actual infl: " + gamer.getTime()
-            );
-        }
+        then(gamer.getNameId()).equals("OLEG");
+        then(gamer.getTime()).equals(3);
     }
 }

@@ -7,6 +7,8 @@ import ru.tanki.domain.Gamer;
 
 import java.util.List;
 
+import static org.mockito.BDDMockito.then;
+
 public class GamerServiceTest {
 
     @Test
@@ -23,8 +25,6 @@ public class GamerServiceTest {
 
         float actual = gamerService.countAverageAge(gamers);
 
-        if (!numberEqualsService.lessFloat(actual, 10)) {
-            throw new RuntimeException("Result invlalid. Actual: " + actual);
-        }
+        then(numberEqualsService.lessFloat(actual, 10));
     }
 }
