@@ -1,5 +1,6 @@
 package ru.tanki.persistence;
 
+import org.junit.jupiter.api.Test;
 import ru.tanki.domain.Gamer;
 
 import java.util.Map;
@@ -8,9 +9,8 @@ import java.util.Objects;
 public class GamerPersistence_ConvertGamer_Test {
 
     private static final GamerPersistance gamerPersistence = new GamerPersistance();
-
-    public static void main(String[] args) {
-
+    @Test
+    public void checkCreation() {
         Map<String, String> input = Map.of(
                 "nameid", "OLEG",
                 "gametime", "3"

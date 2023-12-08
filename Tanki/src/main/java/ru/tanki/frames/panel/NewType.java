@@ -58,8 +58,6 @@ public class NewType extends JPanel implements ActionListener {
             pcBulletDraw(g);
        } else {
            gameOver(g);
-           System.out.println(pcX);
-           System.out.println(pcY);
        }
     }
 
@@ -201,7 +199,6 @@ public class NewType extends JPanel implements ActionListener {
             }
         };
         Timer timer = new Timer(true);
-        // будем запускать каждых 10 секунд (10 * 1000 миллисекунд)
         timer.scheduleAtFixedRate(timerTask, 0, 20*1000);
     }
 

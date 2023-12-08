@@ -8,9 +8,10 @@ public class TanksGame {
     private static final BeginFrame frame = new BeginFrame();
 
     public static void main(String[] args) {
-        GamerPersistance gamerPersistance = new GamerPersistance();
-        gamerPersistance.createGamer("OLEG", 3);
-        gamerPersistance.getAll();
+
         frame.init();
     }
+//    GamerPersistance gamerPersistance = new GamerPersistance();
+//        gamerPersistance.createGamer("OLEG", 3);
+//        gamerPersistance.getAll();
 }

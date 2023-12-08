@@ -38,7 +38,7 @@ public class BeginFrame extends JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                //gamerPersistance.deleteAllGamers();
+                gamerPersistance.deleteAllGamers();
             }
 
             @Override

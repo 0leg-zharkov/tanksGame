@@ -6,7 +6,7 @@ import ru.tanki.persistence.GamerPersistance;
 
 import javax.swing.*;
 
-public class GameFrame extends JFrame {
+public class  GameFrame extends JFrame {
 
     private NewType game;
     private String gamerName;

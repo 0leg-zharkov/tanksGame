@@ -53,7 +53,6 @@ public class MyThread extends Thread{
                         e.printStackTrace();
                 }
                 int result = Integer.parseInt(String.valueOf((finishTime - beginTime) / 1000));
-                //закоментил, чтобы бд не тормошить
                 if (isOld) {
                     gamerPersistance.updateGamer(gamerName, result);
                 } else {

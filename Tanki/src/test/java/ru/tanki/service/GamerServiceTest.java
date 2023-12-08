@@ -1,5 +1,6 @@
 package ru.tanki.service;
 
+import org.junit.jupiter.api.Test;
 import ru.tanki.GamerService;
 import ru.tanki.NumberEqualsService;
 import ru.tanki.domain.Gamer;
@@ -8,7 +9,8 @@ import java.util.List;
 
 public class GamerServiceTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void checkAverage() {
 
         GamerService gamerService = new GamerService();
         NumberEqualsService numberEqualsService = new NumberEqualsService();
